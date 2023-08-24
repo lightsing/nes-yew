@@ -1,6 +1,7 @@
 # nes-yew
 
-![Crates.io](https://img.shields.io/crates/v/nes-yew)
+[![Crates.io](https://img.shields.io/crates/v/nes-yew)](https://crates.io/crates/nes-yew)
+[![docs.rs](https://docs.rs/nes-yew/badge.svg)](https://docs.rs/nes-yew)
 
 > Yew component library for nes.css derived from [nes-react](https://github.com/bschulte/nes-react)
 
