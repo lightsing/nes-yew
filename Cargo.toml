@@ -1,0 +1,18 @@
+[package]
+name = "nes-yew"
+version = "0.0.1"
+edition = "2021"
+authors = ["Akase Cho <light.tsing@gmail.com>"]
+repository = "https://github.com/lightsing/new-yew"
+homepage = "https://lightsing.github.io/nes-yew/"
+documentation = "https://docs.rs/nes-yew/"
+license = "MIT OR Apache-2.0"
+keywords = ["web", "webasm", "javascript"]
+categories = ["gui", "wasm", "web-programming"]
+description = "Yew component library for NES.css"
+readme = "README.md"
+
+[dependencies]
+web-sys = "0.3"
+strum = { version = "0.25", features = ["derive"] }
+yew = "0.20"
