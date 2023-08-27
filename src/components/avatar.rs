@@ -13,6 +13,7 @@ pub struct AvatarProps {
     pub rounded: bool,
     pub src: AttrValue,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[function_component(Avatar)]
@@ -24,6 +25,7 @@ pub fn avatar(
         large,
         rounded,
         class,
+        style,
     }: &AvatarProps,
 ) -> Html {
     html! {
@@ -37,6 +39,7 @@ pub fn avatar(
                 if *large { Some("is-large") } else { None },
                 if *rounded { Some("is-rounded") } else { None },
             )}
+            style={style.clone()}
         />
     }
 }

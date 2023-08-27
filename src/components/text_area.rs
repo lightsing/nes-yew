@@ -18,6 +18,7 @@ pub struct TextAreaProps {
     #[prop_or_default]
     pub label_inline: bool,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[function_component(TextArea)]
@@ -32,6 +33,7 @@ pub fn text_area(
         on_change,
         label_inline,
         class,
+        style,
     }: &TextAreaProps,
 ) -> Html {
     let on_change = on_change.clone();
@@ -49,6 +51,7 @@ pub fn text_area(
                     if *warning { Some("is-warning") } else { None },
                     if *error { Some("is-error") } else { None },
                 )}
+                style={style.clone()}
             />
         </div>
     }

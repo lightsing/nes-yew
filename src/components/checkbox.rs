@@ -10,6 +10,7 @@ pub struct CheckboxProps {
     #[prop_or_default]
     pub on_select: Callback<()>,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[function_component(Checkbox)]
@@ -19,6 +20,7 @@ pub fn checkbox(
         on_select,
         checked,
         class,
+        style,
     }: &CheckboxProps,
 ) -> Html {
     let on_select = on_select.clone();
@@ -28,6 +30,7 @@ pub fn checkbox(
                 <input
                     type="checkbox"
                     class={classes!(class, "nes-checkbox")}
+                    style={style.clone()}
                     checked={*checked}
                     onchange={Callback::from(move |_| on_select.emit(()))}
                 />

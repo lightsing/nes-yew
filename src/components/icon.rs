@@ -18,6 +18,7 @@ pub struct IconProps {
     #[prop_or_default]
     pub half: bool,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, EnumIter, IntoStaticStr)]
@@ -58,6 +59,7 @@ pub fn icon(
         transparent,
         half,
         class,
+        style,
     }: &IconProps,
 ) -> Html {
     let icon: &'static str = icon.into();
@@ -74,6 +76,7 @@ pub fn icon(
                 if *transparent { Some("is-empty") } else { None },
                 if *half { Some("is-half") } else { None },
             )}
+            style={style.clone()}
         />
     }
 }

@@ -12,6 +12,7 @@ pub struct ContainerProps {
     #[prop_or_default]
     pub centered: bool,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[function_component(Container)]
@@ -23,6 +24,7 @@ pub fn container(
         rounded,
         centered,
         title,
+        style,
     }: &ContainerProps,
 ) -> Html {
     let class = classes!(
@@ -35,7 +37,7 @@ pub fn container(
     );
 
     html! {
-        <section class={class}>
+        <section class={class} style={style.clone()}>
             {title.as_ref().map(|t| html!{<h2 class="title">{t}</h2>})}
             {children.clone()}
         </section>

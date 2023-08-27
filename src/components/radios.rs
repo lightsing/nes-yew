@@ -7,6 +7,7 @@ pub struct RadiosProps {
     pub selected_value: AttrValue,
     pub on_value_change: Callback<AttrValue>,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[derive(Properties, Clone, PartialEq)]
@@ -22,6 +23,7 @@ pub fn radios(
         selected_value,
         on_value_change,
         class,
+        style,
     }: &RadiosProps,
 ) -> Html {
     options
@@ -39,6 +41,7 @@ pub fn radios(
                     <input
                         type="radio"
                         class={classes!("nes-radio", class)}
+                        style={style.clone()}
                         value={option.value.clone()}
                         checked={option.value == *selected_value}
                         onchange={Callback::from(|_| {})}

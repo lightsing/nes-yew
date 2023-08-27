@@ -18,6 +18,7 @@ pub struct TextInputProps {
     #[prop_or_default]
     pub label_inline: bool,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 
 #[function_component(TextInput)]
@@ -32,6 +33,7 @@ pub fn text_input(
         on_change,
         label_inline,
         class,
+        style,
     }: &TextInputProps,
 ) -> Html {
     let on_change = on_change.clone();
@@ -50,6 +52,7 @@ pub fn text_input(
                     if *warning { Some("is-warning") } else { None },
                     if *error { Some("is-error") } else { None },
                 )}
+                style={style.clone()}
             />
         </div>
     }

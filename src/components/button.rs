@@ -15,6 +15,7 @@ pub struct ButtonProps {
     #[prop_or_default]
     pub disabled: bool,
     pub class: Option<Cow<'static, str>>,
+    pub style: Option<AttrValue>,
 }
 #[function_component(Button)]
 pub fn button(
@@ -26,6 +27,7 @@ pub fn button(
         warning,
         error,
         disabled,
+        style,
     }: &ButtonProps,
 ) -> Html {
     let class = classes!(
@@ -39,7 +41,7 @@ pub fn button(
     );
 
     html! {
-        <button class={class} disabled={*disabled}>
+        <button class={class} disabled={*disabled} style={style.clone()}>
             {children.clone()}
         </button>
     }
